@@ -32,16 +32,16 @@ The result is a clear, visual demonstration of how **AI can learn behaviours wit
 - A feed-forward neural network built from scratch in C#.  
 - Architecture: **7 input neurons → hidden layers (12 in the first) + (8 in the second ) → 2 output neurons**.  
 - Outputs:  
-  - **Steering** (turn left/right)  
-  - **Throttle** (accelerate/slow down)  
+  - Steering (turn left/right)  
+  - Throttle (accelerate/slow down)  
 - Activation: **ReLU** (for non-linearity).  
 
-**[]**
+
 
 ---
 
 ### 3. Evolutionary Training (EvolutionManager.cs)
-- Each generation spawns a **population** of cars with randomised weights.  
+- Each generation spawns a population of cars with randomised weights.  
 - After cars crash or finish:  
   - **The Best car** = one that travelled furthest, and when the cars continuously finish the track, it uses the brain of the car that completed the lap fastest.  
   - Neural net weights from the best car are copied and mutated to create the next generation.  
@@ -56,20 +56,16 @@ The result is a clear, visual demonstration of how **AI can learn behaviours wit
 - If a car completes the track, it’s prioritised as the “champion” of the generation.  
 - Cars are despawned after finishing or crashing, keeping the simulation efficient.  
 
-**[Insert Screenshot of Unity scene with cars mid-race + fitness tracker overlay]**
-
 ---
 
 ### 5. Camera System (CameraFollow.cs)
-- Always follows the **current best car**.  
+- Always follows the current best car.  
 - Lets you visually watch the “smartest” car each generation.  
-
-📸 **[Insert Screenshot of game view showing camera locked to best car]**
 
 ---
 
 ## Results
-- Cars typically **learn to complete the track and drive around it very effectively for the cars given limits within 5–10 generations**.  
+- Cars typically learn to complete the track and drive around it very effectively for the cars given limits within 5–10 generations.  
 - Mutation rate strongly affects learning speed:  
   - Low = no improvement.  
   - Medium (0.3–0.5) = fast convergence.  
@@ -85,16 +81,6 @@ Even though this is a **simulation**, I designed a simple threat model as if it 
 - **Code injection**: unsafe modification of evolution logic.  
 
 Mitigation: modular design, input validation, debugging tools, environment sanitisation.  
-
----
-
-## Beyond the Simulation
-This project wasn’t just about coding. It also explored:  
-- **Ethical implications**: safety, fairness, transparency.  
-- **Legal challenges**: liability in accidents, GDPR compliance.  
-- **Societal impact**: job displacement, “Spotify for cars” ownership models, industrial revolution 4.0 parallels.  
-
----
 
 ## Running the Project
 1. Clone this repository:
